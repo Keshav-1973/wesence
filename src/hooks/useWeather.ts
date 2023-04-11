@@ -36,7 +36,7 @@ export const useWeather = (
 
   useEffect(() => {
     setIsLoading(true);
-    if (location) {
+    if (location.position.latitude && location.position.longitude) {
       const url = `${baseUrl}?lat=${location.position.latitude}&lon=${location.position.longitude}&units=${unit}&exclude=minutely,alerts&appid=${apiKey}`;
       axios
         .get(url)
